@@ -1,0 +1,278 @@
+#css selectors
+
+CSS selectors are patterns used to select and style HTML elements. 
+elememt
+class
+id
+child div > p
+descendent 
+universal
+pseudo
+
+#css box model
+
+The CSS box model defines how elements are structured and how space is calculated around them
+Every element is essentially a rectangular box with four main components:
+Content - The actual content (text, images, etc.)
+Padding - Space between content and border
+Border - The border around the padding
+Margin - Space outside the border
+
+box-sizing: border-box is a CSS property value that changes how the width and height of an element are calculated. When you apply box-sizing: border-box to an element, the specified width and height include the content, padding, and border, but not the margin. This means the total size of your box will never exceed the value you set, no matter how much padding or border you add
+ 
+margin-collapse:
+Only vertical margins collapse on block elements    
+Larger margin wins in collapse situations
+Flexbox, Grid, and inline-block don't have margin collapse
+
+#css fonts
+
+CSS fonts control how text appears on web pages.
+font-family
+font-size
+font-weight
+font-style
+
+#css specificity
+
+CSS specificity is a scoring system that determines which CSS rule applies when multiple rules target the same element. It's how browsers resolve conflicts between competing styles.
+How Specificity Works
+Specificity is calculated using a four-part scoring system, often written as (a, b, c, d):
+
+a: Inline styles (style attribute) - worth 1000 points
+b: IDs (#myId) - worth 100 points each
+c: Classes (.myClass), attributes ([type="text"]), and pseudo-classes (:hover) - worth 10 points each
+d: Elements (div, p, span) and pseudo-elements (::before) - worth 1 point each
+
+#css sizing units
+
+px:(pixels): Reference pixel, usually 1/96th of an inch on standard displays.
+em: which is relative to the font size of the parent element for font-sizing, or to the current element’s font size for things like spacing and sizing
+
+rem: which is always relative to the root (<html>) element’s font size, making it useful for consistent, design-wide scaling
+
+%: a percentage of the parent element’s size, used for widths, heights, and spacing
+
+vw and vh: where 1vw is 1% of the viewport’s width and 1vh is 1% of the viewport’s height—ideal for responsive layouts
+
+vmin and vmax: based on the smaller or larger dimension of the viewport
+
+#css display property
+
+The CSS display property controls how an element is visually formatted and how it participates in the layout flow of a web page. It is fundamental for changing an element’s box type and how its children are arranged.
+block: The element starts on a new line and stretches to fill the container's full width (e.g., <div>, <p> by default).
+
+inline: The element flows within the text, does not start a new line, and ignores width and height properties (e.g., <span>, <a> by default).
+
+inline-block: Like inline, but you can set width and height.
+
+none: Completely removes the element from the layout (as if it doesn’t exist).
+
+flex: Makes the element a flex container, enabling flexible layouts for its children (Flexbox).
+
+inline-flex: Like flex, but the container itself behaves as an inline element
+
+#CSS Shadows and outlines
+
+1. Box Shadow (box-shadow):
+Adds a shadow effect to the outside or inside (using inset) edges of an element’s box.
+syntax:
+box-shadow: [horizontal-offset] [vertical-offset] [blur-radius] [optional spread-radius] [color] [inset];
+
+2. Outline (outline):
+Draws a line outside the border edge of an element.
+Does not occupy space in the box model (won’t shift layout).
+syntax:
+outline: [width] [style] [color];
+
+#styling list using css
+
+CSS provides several ways to style lists so you can control the look of bullets, numbers, and the overall appearance of ordered (<ol>) and unordered (<ul>) lists.
+
+list-style: Shorthand to set marker type, position, and image in one line.
+
+list-style-type: Sets the marker or bullet style (e.g., disc, square, decimal, none).
+
+list-style-position: Sets the marker’s position:
+
+inside: Marker inside the content box.
+
+outside: Marker outside the content box (default).
+
+list-style-image: Uses a custom image as the list marker.
+
+#css overflow property
+
+The CSS overflow property determines how content is handled when it exceeds the size of its container. When an element's content doesn't fit within its specified width or height, the overflow property allows you to control whether that extra content is visible, hidden, clipped, or accessible through scrollbars.
+
+The main property values include:
+
+visible: This is the default. Content that overflows is not clipped and will be displayed outside the container’s box.
+
+hidden: The overflowing content is clipped, and the excess content will not be visible. No scrollbars appear.
+
+clip: The content is simply clipped to the container, with no scrollbars or additional indicators, similar to hidden.
+
+scroll: Scrollbars are always shown, regardless of whether the content overflows. This allows users to scroll to see all content.
+
+auto: Scrollbars appear only when the content actually overflows the container. If everything fits, scrollbars are not visible.
+
+initial: Sets the property to its default value.
+
+inherit: Inherits this property from its parent element.
+
+#css position property
+The CSS position property controls how an element is positioned on a web page and how it interacts with other elements with respect to the document flow. The property accepts several values: static, relative, absolute, fixed, and sticky
+
+static: This is the default value. Elements are positioned according to the normal document flow and are not affected by top, bottom, left, or right properties.
+
+relative: The element remains in the normal flow, but can be offset by top, right, bottom, or left from its original position. Other elements are not moved to fill any gap created by this offset.
+
+absolute: The element is removed from the normal flow and positioned relative to its nearest positioned (non-static) ancestor. Its final location is determined by the top, right, bottom, and left properties. Other elements behave as if the element doesn't exist.
+
+fixed: The element is positioned relative to the browser viewport, meaning it stays in place even when scrolling the page. It is also removed from the normal document flow.
+
+sticky: The element behaves like a relative element until a specified scroll offset is met, after which it behaves like a fixed element, "sticking" in place as the page scrolls. Sticky positioning has varying browser support and may require prefixes or fallback styles.
+
+#css variables
+CSS variables (also called custom properties) are a feature in modern CSS that let you define reusable values, such as colors or spacing, and reference them throughout your stylesheets using the var() function.
+Global variables: Define in :root to use them anywhere.
+Local variables: Define inside a specific selector to limit their scope. 
+
+Example:
+:root {
+  --main-bg-color: #1e90ff;
+}
+
+body {
+  background-color: var(--main-bg-color);
+}
+
+#css media queries
+CSS media queries let you apply styles based on device or browser characteristics such as screen width, height, orientation, and more. They are essential for creating responsive designs that adapt to different devices.
+media-type is optional (commonly 'screen', 'print', or 'all').
+media-feature is a condition like min-width: 600px, max-width: 992px, or orientation: portrait
+Example:
+@media media-type and (media-feature) {
+  /* CSS rules */
+}
+
+#css float and clear
+Certainly! “float” and “clear” are classic CSS properties for controlling the flow of elements, especially useful for layouts before modern techniques like Flexbox and Grid. Here’s what they mean and how to use them:
+
+float
+The float property “floats” an element to the left or right within its parent, allowing inline content (like text or images) to wrap around it.
+
+Possible values:
+
+left — Floats the element to the left.
+
+right — Floats the element to the right.
+
+none — Default; does not float.
+
+inherit — Inherits from parent.
+
+clear
+The clear property is used on elements that follow a floated element, to stop content from wrapping around floated siblings. It tells the browser “do not allow floated elements of the given direction beside me.”
+
+Possible values:
+
+left — No left-floating elements allowed beside.
+
+right — No right-floating elements allowed beside.
+
+both — No left or right floating elements allowed beside (clears both sides).
+
+none — Default; allows floating elements.
+
+#css Flexbox
+CSS Flexbox is a layout model that provides a powerful way to arrange and align items within a container, either in rows or columns, making web designs more flexible and responsive compared to traditional layouts like floats or positioning.
+
+Core Concepts and Terminology
+Flex Container: The parent element with display: flex or display: inline-flex. All direct children of this element become flex items.
+Flex Items: The child elements inside the flex container.
+
+Key Flexbox Properties
+display: Set the element as a flex container using display: flex;.
+flex-direction: Specifies the main axis as either row (default), row-reverse, column, or column-reverse.
+flex-wrap: Allows items to wrap onto multiple lines with values nowrap (default), wrap, or wrap-reverse.
+justify-content: Aligns items along the main axis (flex-start, flex-end, center, space-between, space-around, space-evenly).
+align-items: Aligns items along the cross axis (stretch by default, or flex-start, flex-end, center, baseline).
+align-self: Overrides align-items for individual flex items.
+gap: Sets the spacing between flex items (supported in modern browsers).
+
+#css transforms
+The CSS transform property lets you visually manipulate an element by applying 2D or 3D transformations, such as rotation, scaling, translation, and skewing, without disrupting the document flow.
+
+Common Transform Functions
+translate(x, y) – Moves the element along the X and/or Y axis.
+
+scale(x, y) – Scales the element up or down.
+
+rotate(angle) – Rotates the element clockwise (deg, rad, turn).
+
+skew(x-angle, y-angle) – Skews the element.
+
+matrix(a, b, c, d, e, f) – Combines all 2D transforms in a single function.
+
+perspective(n) – Applies a perspective transform (3D).
+
+#css transition
+A CSS transition enables elements to change property values smoothly over a specified duration, rather than instantly, making UI interactions feel more dynamic and polished.
+
+Key Properties of CSS Transitions:
+transition-property: Specifies which CSS properties will transition (e.g., width, color). Use a comma-separated list or all for all animatable properties.
+
+transition-duration: Defines how long the transition takes (e.g., 0.3s, 500ms). If not set, defaults to 0s (no animation).
+
+transition-timing-function: Controls the acceleration curve (e.g., linear, ease, ease-in, ease-out, cubic-bezier), affecting the pace of change.
+
+transition-delay: Sets a delay before the transition starts (e.g., 0.2s)
+
+#css Grid
+What Is CSS Grid?
+CSS Grid Layout, often called only "Grid," is a powerful, two-dimensional layout system. It provides developers with an efficient way to design web layouts that can have both rows and columns, unlocking complex page structures previously difficult to build with floats or Flexbox.
+
+Key Components
+1. Grid Container
+The element you apply display: grid (or display: inline-grid) to becomes the grid container. All its immediate children are grid items.
+.container {
+  display: grid;
+}
+2. Defining Rows and Columns
+You specify how many rows and columns the grid should have—along with their sizes—using these properties:
+grid-template-columns
+grid-template-rows
+.container {
+  display: grid;
+  grid-template-columns: 150px 1fr 150px;
+  grid-template-rows: 100px auto;
+}
+3. Placing Items
+Grid items are auto-placed from left-to-right, top-to-bottom, but you can specify their positions precisely:
+.item1 {
+  grid-column: 1 / 3; /* Spans from column 1 up to (not including) 3 */
+  grid-row: 1 / 2;    /* Only row 1 */
+}
+4. Grid Areas
+You can semantically define areas within your layout and assign items with the grid-area property:
+.container {
+  grid-template-areas:
+    "header header header"
+    "sidebar main main"
+    "footer footer footer";
+}
+.header   { grid-area: header; }
+.sidebar  { grid-area: sidebar; }
+.main     { grid-area: main; }
+.footer   { grid-area: footer; }
+5. Gaps and Alignment
+The gap, row-gap, and column-gap properties control space between grid cells:
+.container {
+  gap: 20px; /* 20px spacing between all rows and columns */
+}
+For alignment:
+justify-items and align-items: Control alignment of grid items within their cells.
+justify-content and align-content: Align the whole grid within the container.
+

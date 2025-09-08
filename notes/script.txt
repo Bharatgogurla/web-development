@@ -1,0 +1,317 @@
+#javascript variables and datatypes
+JavaScript variables are containers for storing data. You can declare them using:
+var (function-scoped, old way)
+let (block-scoped, value can change)
+const (block-scoped, value cannot change)
+Example:
+var a = 10; // Old, function-scoped
+let b = 20; // Block-scoped
+const c = 30; // Block-scoped, cannot be changed
+
+Naming Rules:
+Must start with a letter, underscore (_), or dollar sign ($).
+Cannot start with a digit.
+Case-sensitive (e.g., age and Age are different variables).
+Cannot use reserved JavaScript keywords (e.g., let, var, if).
+Can include Unicode characters, allowing variable names in any language.
+
+Data Types Stored:
+Primitive data types are the fundamental, built-in types that represent single, immutable values. The main primitive data types in JavaScript are:
+
+Number (e.g., 42, 3.14)
+String (e.g., "hello")
+Boolean (true or false)
+Undefined (a variable that has been declared but not assigned a value)
+Null (intentional absence of any object value)
+BigInt (for large integers)
+Symbol (unique and immutable values, often used as object property identifiers)
+These types are compared by value and are immutable, meaning their value cannot be changed once set.
+
+Non-primitive data types (also called reference or derived data types) include entities that are collections of values or more complex objects. The main non-primitive data types are:
+
+Object (a collection of key-value pairs)
+Array (an indexed list of values, which is a specialized object)
+Function (treated as a special kind of object)
+RegExp (regular expressions, also objects)
+Non-primitive types are stored and compared by reference; two variables with the same value but different memory locations are not considered strictly equal. These types are mutable, meaning their contents can be altered after creation
+
+
+#JavaScript Operators and Operations
+A. Arithmetic Operators
+Used for mathematical calculations:
++ Addition / Concatenation
+Example: 5 + 3 results in 8; "Hi" + "!" results in "Hi!"
+- Subtraction
+Example: 10 - 4 results in 6
+* Multiplication
+Example: 6 * 7 results in 42
+/ Division
+Example: 20 / 4 results in 5
+% Modulus (Remainder)
+Example: 10%% 3 results in 1
+** Exponentiation
+Example: 2 ** 3 results in 8
+++ Increment (add 1)
+Usage: x++ or ++x increases x by 1
+-- Decrement (subtract 1)
+Usage: y-- or --y decreases y by 1
+
+B. Assignment Operators
+Assign or modify values of variables:
+= Simple assignment, e.g., x = 10 assigns 10 to x.
++= Add and assign, e.g., x += 5 means x = x + 5.
+-= Subtract and assign, e.g., x -= 3 means x = x - 3.
+*= Multiply and assign, e.g., x *= 2 means x = x * 2.
+/= Divide and assign, e.g., x /= 4 means x = x / 4.
+%= Modulus and assign, e.g., x %= 3 means x = x % 3.
+**= Exponentiation and assign, e.g., x **= 2 means x = x ** 2.
+
+C. Comparison Operators
+Used to compare values, returning Boolean true or false:
+== Equal to (loose comparison), e.g., 5 == '5' is true.
+=== Strict equal (value and type), e.g., 5 === '5' is false.
+!= Not equal (loose), e.g., 5 != 3 is true.
+!== Strict not equal, e.g., 5 !== '5' is true.
+> Greater than, e.g., 10 > 5 is true.
+< Less than, e.g., 3 < 8 is true.
+>= Greater than or equal to, e.g., 7 >= 7 is true.
+<= Less than or equal to, e.g., 4 <= 9 is true.
+
+D. Logical Operators
+Operate on Boolean values to form compound boolean expressions:
+&& Logical AND: true if both operands are true.
+|| Logical OR: true if at least one operand is true.
+! Logical NOT: negates the operand (true becomes false, false becomes true).
+
+E. Bitwise Operators
+Operate at bit (binary digit) level:
+& AND: Sets each bit to 1 if both bits are 1.
+| OR: Sets each bit to 1 if one or both bits are 1.
+^ XOR: Sets each bit to 1 if only one of the two bits is 1.
+~ NOT: Inverts all bits.
+<< Left shift: Shifts bits to the left, adding zeros at the right.
+>> Right shift: Shifts bits to the right.
+
+F. String Operators
+The + operator concatenates (joins) strings.
+Example: "John" + " " + "Doe" results in "John Doe".
+Template literals use backticks and ${} to embed expressions within strings.
+Example: Hello, ${firstName} ${lastName}!
+
+G. Conditional (Ternary) Operator
+A shorthand for if-else statement:
+Syntax: condition ? exprIfTrue : exprIfFalse
+Example: If age is 20, age >= 18 ? "Yes" : "No" evaluates to "Yes".
+
+H. Type Operators
+typeof: Returns the type of a variable as a string (e.g., "number", "string").
+instanceof: Checks if an object is an instance of a specific class or constructor.
+
+
+#Conditionals
+#if,if else,else if ladder,switch
+if else Statement
+The if statement lets you run a block of code only if a specified condition evaluates to true.
+Used after an if statement to specify code that runs if the if condition is false.
+syntax:
+if (condition) {
+  // run if condition is true
+} else {
+  // run if condition is false
+}
+
+Else if ladder:
+An else if ladder is a chain of if and else if statements that execute the block of code corresponding to the first true condition. If none of the conditions are true, an optional else block at the end can catch all other cases.
+syntax:
+if (condition1) {
+  // Code if condition1 is true
+} else if (condition2) {
+  // Code if condition2 is true
+} else if (condition3) {
+  // Code if condition3 is true
+} 
+// ... you can continue as many else if as you need
+else {
+  // Code if none of the above conditions are true
+}
+
+Switch:
+The switch statement in JavaScript allows you to execute different blocks of code based on the value of an expression. It is useful for replacing multiple chained if-else conditions and helps keep code more readable
+
+switch (expression) {
+  case value1:
+    // statements
+    break;
+  case value2:
+    // statements
+    break;
+  // additional cases...
+  default:
+    // statements
+}
+
+
+#loops
+JavaScript has several types of loops to repeatedly execute a block of code based on certain conditions. Here’s a detailed overview of all the common loops and their usage:
+
+for Loop
+Used to run a block of code a specific number of times.
+Syntax:
+for (initialization; condition; increment/decrement) { /* code */ }
+Example:
+for (let i = 0; i < 5; i++) {
+  console.log(i);
+}
+
+while Loop
+Executes a block of code as long as the condition is true.
+Syntax:
+while (condition) { /* code */ }
+Example:
+let i = 0;
+while (i < 5) {
+  console.log(i);
+  i++;
+}
+
+do...while Loop
+Similar to while, but the code block executes at least once before condition checking.
+Syntax:
+do { /* code */ } while (condition);
+Example:
+let i = 0;
+do {
+  console.log(i);
+  i++;
+} while (i < 5);
+
+for...in Loop(object)
+Used to iterate over the enumerable properties (keys) of an object.
+Syntax:
+for (let key in object) { /* code */ }
+Example:
+const obj = {a: 1, b: 2, c: 3};
+for (let key in obj) {
+  console.log(key, obj[key]);
+}
+
+for...of Loop(array)
+Used to iterate over iterable objects such as arrays, strings, sets.
+Syntax:
+for (let value of iterable) { /* code */ }
+Example:
+let arr = [10, 20, 30];
+for (let val of arr) {
+  console.log(val);
+}
+
+
+#functions
+A function in JavaScript is a reusable block of code designed to perform a specific task or return a value. Functions help organize, modularize, and reuse code efficiently.
+Basic function declaration:
+1. Normal Declaration (Function Declaration)
+Description:
+A named function defined using the function keyword. Hoisted, so it can be called before it appears in the code.
+function add(a, b) {
+  return a + b;
+}
+console.log(add(2, 3)); // 5
+2. Function Expression
+Description:
+A function assigned to a variable. Can be named or anonymous. Not hoisted (cannot call before definition).
+const multiply = function(a, b) {
+  return a * b;
+};
+console.log(multiply(2, 3)); // 6
+3. Arrow Function
+Description:
+Introduced in ES6, arrow functions use a shorter syntax. Do not have their own this binding.
+const subtract = (a, b) => a - b;
+console.log(subtract(5, 2)); // 3
+4. Callback Function
+Description:
+A function passed as an argument to another function, to be invoked later.
+function greet(name, callback) {
+  callback(name);
+}
+greet("Alex", function(n) {
+  console.log("Hello, " + n);
+});
+// Output: Hello, Alex
+5. Return Function
+Description:
+A function that returns a value using the return statement.
+function getProduct(a, b) {
+  return a * b;
+}
+let result = getProduct(4, 5); // result is 20
+6. Built-in Function
+Description:
+Functions provided by JavaScript itself or the environment (browser/node). Do not require custom definition.
+let n = parseInt("123"); // Built-in function
+console.log(n); // 123
+
+let arr = [1, 2, 3];
+console.log(arr.map(x => x * 2)); // [2, 4, 6]
+
+
+#object and arrays
+Definition: An object is a collection of named key-value pairs (called properties). Keys (or property names) are usually strings or symbols, and values can be any data type—including other objects or arrays.
+Syntax: Objects are typically defined using curly braces {} with properties inside:
+const person = {
+  firstName: 'Alice',
+  age: 28,
+  isStudent: false
+};
+// Access properties:
+console.log(person.age);
+
+JS DOM Manipulation
+
+Browser Object Model (BOM)
+The Browser Object Model (BOM) provides JavaScript interfaces for interacting with the browser window and its components, such as the location, history, and navigator. It's not standardized like the DOM and varies across different browsers.
+
+Window Object:
+The window object in JavaScript is the global object representing the browser window that displays a web page. All global variables and functions declared in a web page become properties and methods of the window object, making it the top-level container for everything running in the browser.
+
+Example:
+        console.log(window.innerWidth); // Window width
+        console.log(window.innerHeight); // Window height
+        console.log(window.location.href); // URL of the current page
+        console.log(window.navigator.userAgent); // User agent string
+
+Document Object Model (DOM)
+The Document Object Model (DOM) is a programming interface for web documents, providing a structured representation of HTML and XML documents. It allows JavaScript to interact with and manipulate the content, structure, and style of web pages dynamically.
+
+Accessing DOM Elements:
+1.getElementById()
+ <h1 id="codehelp1">Welcome to CodeHelp1</h1>
+ let element = document.getElementById("codehelp1");
+2.getElementsByClassName()
+ <h2 class="code1">Welcome to CodeHelp</h2>
+ let element = document.getElementsByClassName('code1');
+3.getElementsByTagName()
+ <p>Welcome to CodeHelp1</p>
+ let element = document.getElementsByTagName("p");
+4.$0
+ let element = $0;
+5.querySelector()
+Returns the first element within the document that matches the specified selector or group of selectors.
+If no matches are found, it returns null.
+ <div class="welcome">Welcome to CodeHelp1</div>
+ <div class="welcome">Welcome to CodeHelp2</div>
+ let element = document.querySelector(".welcome");
+6.querySelectorAll()
+It returns a static NodeList representing a list of elements that match the specified group of selectors.
+If no matches are found, it returns an empty NodeList.
+    <div class="welcome">Welcome to CodeHelp1</div>
+    <div class="welcome">Welcome to CodeHelp2</div>
+    let element = document.querySelectorAll(".welcome");
+    NodeList(4) [div.welcome, div.welcome]
+      0: div.welcome
+      1: div.welcome
+
+
+
+
+
